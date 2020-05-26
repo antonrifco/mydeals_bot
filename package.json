@@ -1,0 +1,28 @@
+{
+  "name": "mydeals-chatbot",
+  "version": "1.0.0",
+  "description": "Bot to handle online promo discovery that matches with your payment cards",
+  "main": "bot.js",
+  "scripts": {
+    "deploy": "claudia create --region ap-southeast-1 --api-module bot",
+    "configure": "claudia update --configure-fb-bot",
+    "update": "claudia update",
+    "release": "claudia set-version --version production",
+    "start": "ntl"
+  },
+  "keywords": [
+    "promo",
+    "discovery",
+    "fb",
+    "bot"
+  ],
+  "author": "rifco@temanproduk.com",
+  "license": "MIT License",
+  "dependencies": {
+    "claudia-bot-builder": "^4.5.0",
+    "mongodb": "^3.5.7"
+  },
+  "devDependencies": {
+    "ntl": "^5.0.0"
+  }
+}

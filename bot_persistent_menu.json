@@ -1,0 +1,152 @@
+{
+  "get_started":{
+    "payload":"GET_STARTED_PAYLOAD"
+  },
+  "ice_breakers":[
+    {
+       "question": "Which payment cards do you support?",
+       "payload": "BANKS_0"
+    },{
+      "question": "What are the deals for me?",
+      "payload": "OPROMO_0"
+   }
+  ],
+  "persistent_menu": [
+    {
+      "locale": "id_ID",
+      "composer_input_disabled": false,
+      "call_to_actions": [
+        {
+          "type": "postback",
+          "title": "Lihat Semua Promo",
+          "payload": "OPROMO_1"
+        },
+        {
+          "type": "nested",
+          "title": "Kategori Promo",
+          "call_to_actions": [
+            {
+              "type": "postback",
+              "title": "Marketplace",
+              "payload": "CPROMO_Marketplace_1"
+            },
+            {
+              "type": "postback",
+              "title": "Gadgets",
+              "payload": "CPROMO_Gadgets_1"
+            },
+            {
+              "type": "postback",
+              "title": "Hobbies",
+              "payload": "CPROMO_Hobbies_1"
+            },
+            {
+              "type": "postback",
+              "title": "Fashion",
+              "payload": "CPROMO_Fashion_1"
+            },
+            {
+              "type": "postback",
+              "title": "Culinaries",
+              "payload": "CPROMO_Culinaries_1"
+            }
+          ]
+        },
+        {
+          "type": "nested",
+          "title": "Settingan",
+          "call_to_actions": [
+            {
+              "type": "postback",
+              "title": "Kartu Saya",
+              "payload": "MYCARDS_1"
+            },
+            {
+              "type": "postback",
+              "title": "Tambah Kartu",
+              "payload": "BANKS_1"
+            },
+            {
+              "type": "web_url",
+              "title": "Ganti Bahasa",
+              "url": "https:\/\/www.facebook.com\/settings?tab=language&edited=account"
+            },
+            {
+              "type": "web_url",
+              "title": "Kunjungi Website",
+              "url": "https://www.facebook.com/hereyourdeals"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "locale": "default",
+      "composer_input_disabled": false,
+      "call_to_actions": [
+        {
+          "type": "postback",
+          "title": "Get All Promo",
+          "payload": "OPROMO_1"
+        },
+        {
+          "type": "nested",
+          "title": "Kategori Promo",
+          "call_to_actions": [
+            {
+              "type": "postback",
+              "title": "Marketplace",
+              "payload": "CPROMO_Marketplace_1"
+            },
+            {
+              "type": "postback",
+              "title": "Gadgets",
+              "payload": "CPROMO_Gadgets_1"
+            },
+            {
+              "type": "postback",
+              "title": "Hobbies",
+              "payload": "CPROMO_Hobbies_1"
+            },
+            {
+              "type": "postback",
+              "title": "Fashion",
+              "payload": "CPROMO_Fashion_1"
+            },
+            {
+              "type": "postback",
+              "title": "Culinaries",
+              "payload": "CPROMO_Culinaries_1"
+            }
+          ]
+        },
+        {
+          "type": "nested",
+          "title": "Settings",
+          "call_to_actions": [
+            {
+              "type": "postback",
+              "title": "My Cards",
+              "payload": "MYCARDS_1"
+            },
+            {
+              "type": "postback",
+              "title": "Add Card",
+              "payload": "BANKS_1"
+            },
+            {
+              "type": "web_url",
+              "title": "Change Language",
+              "url": "https:\/\/www.facebook.com\/settings?tab=language&edited=account"
+            },
+            {
+              "type": "web_url",
+              "title": "Visit Website",
+              "url": "http:\/\/www.mobejo.com\/?utm_source=facebook&utm_campaign=visit_website&utm_medium=bot&utm_content=english"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
