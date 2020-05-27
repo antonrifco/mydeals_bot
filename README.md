@@ -1,37 +1,43 @@
-## Welcome to GitHub Pages
+## My Deals Bot
 
-You can use the [editor on GitHub](https://github.com/antonrifco/mydeals_bot/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Here the bot can help you find deals that match your payment card.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+In order to use the bot, you need to register your payment cards first, then the bot can inform you several promotions that are suitable for you.
 
-### Markdown
+Currently only works for deals in Indonesia
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Running the Code
 
-```markdown
-Syntax highlighted code block
+1. Firstly you need to clone this project. 
+2. Then create a configuration file config.js in the main directory, with following data
+```
+module.exports = {
+    'db_name': '<database>',
+    'db_path': "mongodb+srv://<username>:<password>@<db_url>/<database>?retryWrites=true",
+    'page_size': 9,
+    'small_page_size': 4
+};
+```
+3. Install all required packages
+```
+npm install
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+npm install claudia -D
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+4. Upload the code on AWS Lambda, by running
+```
+npm start 
+> Deploy
 
-### Jekyll Themes
+npm start
+> Configure
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/antonrifco/mydeals_bot/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## Authors
 
-### Support or Contact
+* [Anton Rifco](https://github.com/antonrifco)
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## License
+
+MIT -- see [LICENSE](LICENSE)
