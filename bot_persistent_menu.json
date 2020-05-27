@@ -69,7 +69,7 @@
             {
               "type": "web_url",
               "title": "Ganti Bahasa",
-              "url": "https:\/\/www.facebook.com\/settings?tab=language&edited=account"
+              "url": "https://www.facebook.com/settings?tab=language&section=account"
             },
             {
               "type": "web_url",
@@ -91,7 +91,7 @@
         },
         {
           "type": "nested",
-          "title": "Kategori Promo",
+          "title": "Promo by Category",
           "call_to_actions": [
             {
               "type": "postback",
@@ -137,12 +137,12 @@
             {
               "type": "web_url",
               "title": "Change Language",
-              "url": "https:\/\/www.facebook.com\/settings?tab=language&edited=account"
+              "url": "https://www.facebook.com/settings?tab=language&section=account"
             },
             {
               "type": "web_url",
               "title": "Visit Website",
-              "url": "http:\/\/www.mobejo.com\/?utm_source=facebook&utm_campaign=visit_website&utm_medium=bot&utm_content=english"
+              "url": "https://www.facebook.com/hereyourdeals"
             }
           ]
         }

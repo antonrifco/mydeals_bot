@@ -195,6 +195,50 @@ var facebook = {
                 } else {
                     return error_fb('Ooops. Failed retrieving list of deals. Please try again later.. 🙇🙇🙇');
                 }
+            } else if(payload.startsWith('CPROMO_')){ /* Showing List of Online Promo per Category */
+                var user = message.sender;
+                let splittedPayload = payload.split('_');
+                var category = splittedPayload[1].trim().capitalize();
+                var page = parseInt(splittedPayload[2].trim());
+                var n_page = page + 1;
+
+                var promo_list = await promos.listOnlinePromosByCategory(client, user, category, page);
+                if(typeof promo_list !== mongo.MongoError) {
+                    if(page <= 1 && promo_list.length < 1){
+                        var text = new fbTemplate.Text(`Ooops. There's no deals for you in this category. Try adding more Payment Cards!`);
+                        return fullMenu(text);
+                    } else {
+                        output = new fbTemplate.Generic(); 
+                        for(let i in promo_list) {
+                            var promo = promo_list[i];
+                            var b_id = 'PROMO_' + promo._id;
+                            var b_title = (promo.title) ? promo.title.ellipsize(80) : '';
+                            var b_image = promo.image.replace(/\s/g, "%20");
+                            var b_merchant = (promo.merchant) ? promo.merchant.ellipsize(60) : '';
+                            var b_category = promo.category;
+                            var b_expiry = "s.d " + new Date(promo.date_end).toLocaleDateString('en-GB', {day : 'numeric', month : 'short', year : 'numeric'})
+                            
+                            output.addBubble(b_title, b_merchant + "\n" + b_category + "\n" + b_expiry)
+                                    .addImage(b_image);
+
+                            output.addButton('View Details', b_id);
+                        }
+                        if(promo_list.length < config.page_size)
+                            n_page = 1;
+                        
+                        if(n_page != page)
+                            output.addBubble( "More Deals here" )
+                                .addImage('https://cards.mobejo.com/banks/SEEMORE.png')
+                                .addButton('Next', 'OPROMO_' + n_page );
+                        
+                        return [
+                            "Here are deals for you 🤹",
+                            fullMenu(output)
+                        ];
+                    }
+                } else {
+                    return error_fb('Ooops. Failed retrieving list of deals. Please try again later.. 🙇🙇🙇');
+                }
             } else if(payload.startsWith('PROMO_')){ /* Showing Details of Promo */
                 var id_promo = payload.substring(6);
                 
