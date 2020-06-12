@@ -2,6 +2,7 @@ const config = require('../config');
 
 var cards = {
     listBanks : async function(client, page){
+        if(page < 1) page = 1;
         try {
             var db = await client.db(config.db_name);
             //var count = await db.collection('banks').countDocuments();
@@ -18,6 +19,7 @@ var cards = {
     },
 
     listCards : async function(client, bank, page){
+        if(page < 1) page = 1;
         try {
             var db = await client.db(config.db_name);
             //var count = await db.collection('cards').countDocuments({provider: bank});
@@ -33,6 +35,7 @@ var cards = {
     },
 
     listMyCards : async function(client, user, page){
+        if(page < 1) page = 1;
         try {
             var db = await client.db(config.db_name);
             

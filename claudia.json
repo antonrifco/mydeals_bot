@@ -1,0 +1,11 @@
+{
+  "lambda": {
+    "role": "mydeals-chatbot-executor",
+    "name": "mydeals-chatbot",
+    "region": "ap-southeast-1"
+  },
+  "api": {
+    "id": "e4m24ylkgh",
+    "module": "bot"
+  }
+}

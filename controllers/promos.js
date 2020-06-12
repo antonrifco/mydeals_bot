@@ -2,6 +2,7 @@ const config = require('../config');
 
 var promos = {
     listOnlinePromos : async function(client, user, page){
+        if(page < 1) page = 1;
         try {
             var db = await client.db(config.db_name);
             
@@ -55,6 +56,7 @@ var promos = {
     },
 
     listOnlinePromosByCategory : async function(client, user, category, page){
+        if(page < 1) page = 1;
         try {
             var db = await client.db(config.db_name);
             

@@ -6,6 +6,10 @@ const users = require("../controllers/users");
 const cards = require("../controllers/cards");
 const promos = require("../controllers/promos");
 
+const butler_image = [
+    'https://i.ibb.co/0sznGbP/mydeals-logo.png',
+    'https://storage.needpix.com/rsynced_images/waiter-150452_1280.png'
+];
 var facebook = {
     handle : async function(client, message){
         let output = null;
@@ -23,8 +27,12 @@ var facebook = {
                 }
                 output = await users.registerUser(client, user_data);
                 if(output){ 
-                    var text = new fbTemplate.Text('Welcome to My Deals! Please register your payment cards to get information on eligible deals ' + '❤️❤️❤️');
-                    return fullMenu(text);
+                    let image = new fbTemplate.Image(butler_image[0]).get();
+                    let text = new fbTemplate.Text(`Welcome to My Deals!\n\nPlease register your payment cards to get information on eligible deals for you ❤️❤️❤️`);
+                    return [
+                        image,
+                        fullMenu(text)
+                    ];
                 } else
                     return error_fb(`Sorry, currently you're experiencing issue with our service. Please come back in few moments`);
             } else if(payload.startsWith('MYCARDS_')){
@@ -281,8 +289,12 @@ var facebook = {
                 }
             }
         } else {
-            var text = new fbTemplate.Text(`Hello, friend! Anything I can help?`);
-            return fullMenu(text);
+            let image = new fbTemplate.Image(butler_image[1]).get();
+            let text = new fbTemplate.Text(`Hello, friend! Anything I can help?`);
+            return [
+                image, 
+                fullMenu(text)
+            ];
         }
     },
 }
@@ -293,7 +305,7 @@ let noMenu = function (template) {
 
 let addCardMenu = function (template) {
     return template
-            .addQuickReply('Add Card', 'BANKS_1')
+            .addQuickReply('Add New Card', 'BANKS_1')
             .get();
 }
 
@@ -307,7 +319,7 @@ let cardMenu = function (template) {
 let fullMenu = function (template) {
     return template
             .addQuickReply('My Cards', 'MYCARDS_1')
-            .addQuickReply('Add Card', 'BANKS_1')
+            .addQuickReply('Add Payment Card', 'BANKS_1')
             .addQuickReply('Get Promo', 'OPROMO_1')
             .get();
 }

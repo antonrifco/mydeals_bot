@@ -5,10 +5,10 @@
   "ice_breakers":[
     {
        "question": "Which payment cards do you support?",
-       "payload": "BANKS_0"
+       "payload": "BANKS_1"
     },{
       "question": "What are the deals for me?",
-      "payload": "OPROMO_0"
+      "payload": "OPROMO_1"
    }
   ],
   "persistent_menu": [
